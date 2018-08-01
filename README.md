@@ -214,3 +214,10 @@ GarageClient::Client.new(..., tracing: { tracer: 'aws-xray', service: 'user' })
 ```
 
 `service` will be `name` of the sub segments.
+
+### opencensus
+
+```ruby
+require 'opencensus/trace/integrations/faraday_middleware'
+GarageClient::Client.new(..., tracing: { tracer: 'opencensus' })
+```
