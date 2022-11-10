@@ -78,6 +78,10 @@ module GarageClient
             raise 'Configure target service name with `tracing.service`' unless service
             require 'aws/xray/faraday'
             builder.use Aws::Xray::Faraday, service
+          when 'opencensus'
+            require "opencensus/trace/integrations/faraday_middleware"
+            builder.use OpenCensus::Trace::Integrations::FaradayMiddleware,
+              span_name: ->(env) { env[:url].path }
           else
             raise "`tracing` option specified but GarageClient does not support the tracer: #{options[:tracing][:tracer]}"
           end
