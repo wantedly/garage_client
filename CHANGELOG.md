@@ -1,3 +1,9 @@
+## 3.0.0
+- Upgrade faraday gem to v2 and drop support for Ruby 2.6 and 2.7
+
+## 2.4.6
+- Fix deprecation warning from Faraday
+
 ## 2.4.5
 - Drop support for Ruby 2.5
 - Remove implicit dependency on Active Support
